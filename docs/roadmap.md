@@ -15,7 +15,8 @@ Not started.
 
 ## Milestones
 
-<!-- One row per milestone. "Done when" is observable: a command that passes, a page that renders, a file that exists, a rung that passes.
+<!-- One row per milestone. A milestone is a release, and the first one does not have to reach the goal: see docs/engineering/scope.md.
+     "Done when" is observable: a command that passes, a page that renders, a file that exists, a rung that passes.
      Rung is the ladder rung the milestone belongs to (R0-R5), or blank when the goal is not fuzzy. State: todo | doing | done -->
 
 | # | Milestone | Rung | Done when | State |
@@ -31,7 +32,8 @@ Not started.
 
 ## Later
 
-<!-- Unordered. Ideas and deferred work. -->
+<!-- Unordered. Ideas and deferred work. Work cut from a release carries the condition that brings it back:
+     `- <work> — cut from <release> — revisit when: <condition>`. See docs/engineering/scope.md. -->
 
 ## Done
 

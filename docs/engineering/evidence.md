@@ -41,6 +41,8 @@ Worked, so the frame is visibly generic:
 
 The Rate and the Arithmetic are the verdict. Everything below exists to measure the Rate honestly.
 
+The spec is written at goal size. What gets built is a release, which is smaller — `scope.md` governs that cut, and the spec never shrinks to match it.
+
 ## The ladder
 
 Six rungs, cheapest falsification first. Each rung has its own bar, registered before it runs, and each rung can kill the approach.

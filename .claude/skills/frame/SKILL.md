@@ -93,6 +93,8 @@ Then commit — **the bars land in their own commit, before any brief is written
 
 One Now or Next item per rung, in order, each naming its bar path. The build task for R3 is written but stays in Next: the loop refuses to open it until R2 has a PASS.
 
+Write that R3 item as the first release, not as the goal: the thinnest artifact a person can walk, in one market, on one platform. What it leaves out is cut per `docs/engineering/scope.md` — under Later, each with the trigger that brings it back.
+
 ## Key rules
 
 1. **No evidence is gathered here.** Framing that already knows the answer is not framing.
@@ -100,3 +102,4 @@ One Now or Next item per rung, in order, each naming its bar path. The build tas
 3. **Bars are registered before evidence, in their own commit.** Changing one afterwards is T3: stop and ask.
 4. **The goal is untouchable.** It is T3 and user-owned. The bet changes; the goal does not.
 5. **A new bet names the lesson that makes it different.** Otherwise it is the old one repainted.
+6. **The spec is goal-sized; the release is not.** When the work is too big, cut the release. Never cut the spec to fit it — a spec trimmed to what is easy is the goal quietly replaced.

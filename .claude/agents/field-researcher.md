@@ -18,7 +18,9 @@ Find what already happened to people who tried this, and what the people in the 
 - **Real numbers.** Prices, conversion rates, retention benchmarks, install counts, refund rates. Every one carries its source.
 - **The failure shelf.** Who tried this and stopped. This is the most useful material you will find and the easiest to skip.
 
-Write `docs/research/<topic>.md`: the date, the question the note answers, the findings, then the sources. Link it from the plan that used it.
+Work to the budget in the dispatch: the market or segment, how many comparables, how many sources, and the question that ends it. It is written before you start and does not move once material comes back. A dispatch with no budget comes back for one — an open-ended search ends when you run out of context, not when the question is answered.
+
+Write `docs/research/<topic>.md`: the date, the question the note answers, the budget you ran under, the findings, then the sources. Link it from the plan that used it.
 
 Two rules hold the whole job up:
 

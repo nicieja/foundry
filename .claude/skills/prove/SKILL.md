@@ -28,7 +28,7 @@ You are the builder. **You do not write a brief, you do not speak to a subject, 
 
 ### 2. Research — dispatch `field-researcher`
 
-Brief it with the rung's Claim and nothing about what you hope it finds. It returns `docs/research/<topic>.md` with sourced material, and — for R2 onward — the panel briefs, every trait labelled Grounded or Assumed.
+Brief it with the rung's Claim, its budget, and nothing about what you hope it finds. The budget is the market or segment, how many comparables, how many sources, and the question that ends it; write it before you dispatch, and do not move it once material comes back (`docs/engineering/scope.md`). It returns `docs/research/<topic>.md` with sourced material, and — for R2 onward — the panel briefs, every trait labelled Grounded or Assumed.
 
 At **R1 this is the whole rung.** The material *is* the evidence: comparables, real prices, the failure shelf. Skip to step 6 and let the arbiter rule the research against the bar.
 

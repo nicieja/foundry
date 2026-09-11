@@ -27,7 +27,8 @@
 
 ## Out of scope
 
-<!-- What this task deliberately does not do, and where that work goes instead. -->
+<!-- What this task deliberately does not do, where that work goes instead, and the trigger that brings it back.
+     A cut also lands under Later in the roadmap and as a line in docs/decisions.md, per docs/engineering/scope.md. -->
 
 ## Verification
 
