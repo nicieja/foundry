@@ -12,7 +12,7 @@ What was measured, what the bar was, and who ruled. Durable, because a verdict r
 
 ## Rules
 
-- A bar lands in a commit that carries no evidence — all of a bet's bars together is fine, a bar beside its own transcripts is not. It is committed before a brief is written or a subject is spawned. `bin/evidence-check` fails `bin/ci` when a bar was introduced in the same commit as its verdict or later, or when its content has changed since the commit that introduced it.
+- A bar lands in a commit that carries no evidence — all of a bet's bars together is fine, a bar beside its own transcripts is not. It is committed before a brief is written or a subject is spawned. `bin/evidence-check` fails `bin/ci` when a bar was introduced in the same commit as any of its evidence — its transcripts or its verdict — or later, or when its content has changed since the commit that introduced it.
 - Transcripts are raw. Never a summary, never an excerpt, never tidied. The arbiter reads these and nothing else about the run.
 - `verdict.md` opens with one word — PASS, FAIL, or VOID — then the count against the bar, then the artifact SHA the verdict binds to.
 - Nothing here is edited after its verdict lands. A wrong run is re-run into a new rung directory, not corrected in place.

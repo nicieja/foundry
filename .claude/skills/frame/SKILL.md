@@ -76,7 +76,7 @@ Never `subagent_type: "fork"` for either. Raise any bar their answers show to be
 
 Written now, before a single rung runs, into the bet entry. Two of them:
 
-- A ceiling on rungs attempted.
+- A ceiling on rung attempts that end in FAIL. Not a ceiling on rungs: a bet that passes its way up the ladder is a bet that is working.
 - A repeat rule: the same rung fails *n* times for the same reason.
 
 Default both to 3 unless the goal argues otherwise. The point of writing them now is that they cannot be softened later by whoever is losing.
@@ -91,7 +91,7 @@ Then commit — **the bars land in their own commit, before any brief is written
 
 ### 8. Put the ladder on the roadmap
 
-One Now or Next item per rung, in order, each naming its bar path. The build task for R3 is written but stays in Next: the loop refuses to open it until R2 has a PASS.
+Fill Milestones first: one row per rung, Rung `R<n>`, "Done when" naming that rung's `verdict.md` and the word it must open with. Then one Now or Next item per rung, in order, each naming its bar path. The build task for R3 is written but stays in Next: the loop refuses to open it until R2 has a PASS.
 
 Write that R3 item as the first release, not as the goal: the thinnest artifact a person can walk, in one market, on one platform. What it leaves out is cut per `docs/engineering/scope.md` — under Later, each with the trigger that brings it back.
 

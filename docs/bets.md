@@ -10,7 +10,7 @@ Format:
 
     - Opened: YYYY-MM-DD — rests on: <the assumption that makes this bet different>
     - Contradicts: <lesson from a killed bet, or "first bet">
-    - Kill when: <n> rungs attempted, or the same rung fails <n> times for the same reason
+    - Kill when: <n> rung attempts end in FAIL, or the same rung fails <n> times for the same reason
     - Spec: docs/evidence/bet-<n>/spec.md
     - R<n> — PASS | FAIL | VOID — <one line> — docs/evidence/bet-<n>/r<n>/verdict.md
     - Closed: YYYY-MM-DD — persevere | pivot | kill — <the reason> — lessons: docs/research/lessons-bet-<n>.md

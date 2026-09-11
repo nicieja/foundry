@@ -10,13 +10,23 @@ reject() {
   failed=1
 }
 
+first_commit() {
+  git log --diff-filter=A --format=%H -- "$1" | tail -1
+}
+
 for bar in docs/evidence/*/*/bar.md; do
   [ -f "$bar" ] || continue
   rung=${bar%/bar.md}
   verdict=$rung/verdict.md
-  [ -f "$verdict" ] || continue
 
-  bar_commit=$(git log --diff-filter=A --format=%H -- "$bar" | tail -1)
+  evidence=""
+  [ -f "$verdict" ] && evidence="$verdict"
+  for transcript in "$rung"/t-*.md; do
+    [ -f "$transcript" ] && evidence="$evidence $transcript"
+  done
+  [ -n "$evidence" ] || continue
+
+  bar_commit=$(first_commit "$bar")
   if [ -z "$bar_commit" ]; then
     reject "$bar" "never committed, so it was never registered"
     continue
@@ -25,16 +35,19 @@ for bar in docs/evidence/*/*/bar.md; do
   git show "$bar_commit:$bar" | cmp -s - "$bar" ||
     reject "$bar" "changed since it was registered in $bar_commit"
 
-  verdict_commit=$(git log --diff-filter=A --format=%H -- "$verdict" | tail -1)
-  if [ "$bar_commit" = "$verdict_commit" ]; then
-    reject "$bar" "registered in the same commit as its verdict"
-  elif [ -n "$verdict_commit" ] &&
-    ! git merge-base --is-ancestor "$bar_commit" "$verdict_commit"; then
-    reject "$bar" "registered after its verdict, in $bar_commit"
-  fi
+  for file in $evidence; do
+    file_commit=$(first_commit "$file")
+    [ -n "$file_commit" ] || continue
+    if [ "$bar_commit" = "$file_commit" ]; then
+      reject "$bar" "registered in the same commit as $file"
+    elif ! git merge-base --is-ancestor "$bar_commit" "$file_commit"; then
+      reject "$bar" "registered after $file, in $bar_commit"
+    fi
+  done
 
-  for transcript in $(grep -o 't-[0-9][0-9]*\.md' "$verdict" | sort -u); do
-    [ -f "$rung/$transcript" ] || reject "$verdict" "cites a missing $transcript"
+  [ -f "$verdict" ] || continue
+  for cited in $(grep -o 't-[0-9][0-9]*\.md' "$verdict" | sort -u); do
+    [ -f "$rung/$cited" ] || reject "$verdict" "cites a missing $cited"
   done
 done
 

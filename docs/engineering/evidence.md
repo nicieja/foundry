@@ -56,9 +56,17 @@ Six rungs, cheapest falsification first. Each rung has its own bar, registered b
 
 Code before R2 has passed is work done on an unfalsified guess. The loop refuses it.
 
+## Behavior the foundry may not perform
+
+Some Behavior slots name an act the tiers forbid. Money movement is T3, and so is collecting evidence from real people, so a goal that turns on *buys* names an act no rung can observe.
+
+R4's bar then counts the nearest act a subject can actually perform, and the bar says in one line what that act is not. *Chooses the paid option and says what they would pay for it* is not a payment; a bar that does not say so reads, three weeks later, as though it were one.
+
+Never resolve this by loosening the Behavior slot. The spec keeps the act the goal names, and the bar carries the substitution in the open, where the arbiter counts it and the reader can see what was traded away.
+
 ## Pre-registration
 
-The bar is written, committed in a commit that carries no evidence, and only then tested. `bin/evidence-check` fails `bin/ci` when a bar was introduced in the same commit as its verdict or later, or when its content has changed since the commit that introduced it. Changing a registered bar after evidence exists is T3: stop and ask.
+The bar is written, committed in a commit that carries no evidence, and only then tested. `bin/evidence-check` fails `bin/ci` when a bar was introduced in the same commit as any of its evidence — its transcripts or its verdict — or later, or when its content has changed since the commit that introduced it. Changing a registered bar after evidence exists is T3: stop and ask.
 
 The lock reads git history, and commit order is the only signal git gives that the builder does not also control. A rewritten history defeats it, and so does writing a bar and its verdict together and committing them one after the other. It is a tripwire for drift, not a guard against a determined forger. What it does catch is the move that actually happens: reaching for the bar after the count came back short.
 
