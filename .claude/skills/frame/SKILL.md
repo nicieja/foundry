@@ -63,12 +63,18 @@ One `bar.md` per rung, R1 through R5, under `docs/evidence/bet-<n>/r<n>/`. Each 
 
 A bar is honest when a reasonable person could look at the evidence and reach the same number without you. Write the count, not the sentiment: *4 of 7 name a moment in their own week without being offered one* — never *most subjects show interest*.
 
-### 5. Have the bars attacked before you register them
+Two rules decide whether a count can rule at all. Both are mechanical, because a promise in prose does not survive the moment the bar is written.
 
-A bar the builder chose is a bar the builder can meet. Two dispatches, in parallel, before anything is committed:
+- **Each count names the document class that answers it, confirmed reachable in step 5 before the bar is committed.** A count that depends on a disclosure nobody publishes cannot rule: it fails identically every round, and no amount of research changes that. Absence of a permission is not evidence of a refusal. You never open the class yourself — reading one figure at R0 is the evidence-gathering this rung exists to keep out.
+- **No count tests a risk whose threshold this release cannot reach.** *Does a payment provider permit this in writing* is not a count on a release that takes no money; it is a line in `docs/risks.md` with the scale it bites at. See `docs/engineering/risk.md`.
+
+### 5. Have the bars attacked, and their sources confirmed, before you register them
+
+A bar the builder chose is a bar the builder can meet. Three dispatches, in parallel, before anything is committed:
 
 - `falsifier` on the **Arithmetic** — "find the input that breaks this number."
 - The global `ceo` on the **spec** — "challenge this end to end; do not rubber-stamp."
+- `field-researcher` on the **document classes** — "for each class named below, does a document of that class exist and open? Return reachable or unreachable per class, and nothing else. No figures, no quotes, no numbers." A class that comes back unreachable sends its count back to be rewritten here, before registration, never after. The researcher sees the pages so that you do not.
 
 Never `subagent_type: "fork"` for either. Raise any bar their answers show to be easy, and say in the spec which bar moved and why. This is the only moment a bar may move.
 

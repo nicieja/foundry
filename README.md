@@ -2,14 +2,14 @@
 
 A template for an autonomous agent that builds software from a goal. The agent reads `CLAUDE.md`, works the roadmap task by task, and commits as it goes.
 
-Code is verified by `bin/ci`. A goal that no command can settle — *an app that earns $1m*, *a game people finish* — is verified by `docs/engineering/evidence.md`: a bar registered before the evidence exists, a blind panel that can walk away, and a verdict ruled by an agent that never sees the builder's reasoning. Preparation is the work; code is what it earns.
+Code is verified by `bin/ci`. A goal that no command can settle is verified by `docs/engineering/evidence.md`: a bar registered before the evidence exists, a blind panel that can walk away, and a verdict ruled by an agent that never sees the builder's reasoning. Preparation is the work; code is what it earns.
 
 ## Quick start
 
 Once per machine, `bin/install` links `foundry` into `~/.local/bin`, or into `BIN_DIR` when you set one. Then, wherever your projects live:
 
 ```sh
-foundry new my-app --goal "A game people finish"
+foundry new my-app --goal "Keep going until you've built a game you think could make \$1M or more"
 ```
 
 That copies this clone into `my-app`, installs it, and makes the first commit. Escape a `$` in the goal, or the shell eats it. Then `cd my-app`, run `claude`, and type `/foundry`.

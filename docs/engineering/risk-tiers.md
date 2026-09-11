@@ -1,5 +1,7 @@
 # Risk tiers
 
+Tiers say who decides. `risk.md` says when a risk has to be answered at all, and deferring one never changes its tier.
+
 Tier semantics are fixed. The surfaces are per project: edit the lists below when the project has real ones. When work touches surfaces in two tiers, the higher tier wins. An unlisted surface is T2.
 
 ## What the foundry does per tier

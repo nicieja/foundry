@@ -34,6 +34,8 @@ Two lines. Both, every time.
 
 A cut with no trigger is a deletion wearing a kinder word. The trigger is a condition the loop can observe — a rung that passes, a rate that holds, a release that lands — never a date.
 
+A cut is work not done. A risk is a question not yet worth asking. They go to different ledgers: cuts to Later, risks to `docs/risks.md` with the scale they bite at. `risk.md` carries that rule.
+
 ## Research runs to a budget
 
 Every research dispatch carries its budget, written into the brief before it runs: the market or segment, how many comparables, how many sources, and the question that ends it.
