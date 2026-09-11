@@ -1,0 +1,42 @@
+#!/bin/sh
+# The pre-registration lock of docs/engineering/evidence.md: a bar is committed
+# before the evidence it judges, and never changes after.
+set -e
+cd "$(dirname "$0")/.."
+
+failed=0
+reject() {
+  echo "$1: $2"
+  failed=1
+}
+
+for bar in docs/evidence/*/*/bar.md; do
+  [ -f "$bar" ] || continue
+  rung=${bar%/bar.md}
+  verdict=$rung/verdict.md
+  [ -f "$verdict" ] || continue
+
+  bar_commit=$(git log --diff-filter=A --format=%H -- "$bar" | tail -1)
+  if [ -z "$bar_commit" ]; then
+    reject "$bar" "never committed, so it was never registered"
+    continue
+  fi
+
+  git show "$bar_commit:$bar" | cmp -s - "$bar" ||
+    reject "$bar" "changed since it was registered in $bar_commit"
+
+  verdict_commit=$(git log --diff-filter=A --format=%H -- "$verdict" | tail -1)
+  if [ "$bar_commit" = "$verdict_commit" ]; then
+    reject "$bar" "registered in the same commit as its verdict"
+  elif [ -n "$verdict_commit" ] &&
+    ! git merge-base --is-ancestor "$bar_commit" "$verdict_commit"; then
+    reject "$bar" "registered after its verdict, in $bar_commit"
+  fi
+
+  for transcript in $(grep -o 't-[0-9][0-9]*\.md' "$verdict" | sort -u); do
+    [ -f "$rung/$transcript" ] || reject "$verdict" "cites a missing $transcript"
+  done
+done
+
+[ "$failed" = 0 ] || exit 1
+echo "evidence-check: ok"

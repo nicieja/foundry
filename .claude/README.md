@@ -43,12 +43,15 @@ Command, `commands/<name>.md`:
     ---
     <the prompt; $ARGUMENTS receives what follows /<name>>
 
+An agent whose prompt is load-bearing gets a regression battery beside it, `agents/<name>.evals.md`, with no frontmatter so the registry skips it: a protocol, shared fixtures, a probe table (bias / brief / input / pass criterion), and a dated results log. Run it after any change to that prompt instead of trusting a re-read. A failing probe gets a prompt fix and a re-run — never a lowered pass criterion, which is the same move as changing a bar after seeing the evidence.
+
 ## Rules
 
 - Generic to this repo, not to one task.
 - Short. The description is the contract; the body says how.
 - Kebab-case names.
 - Every agent brief carries the stop conditions from `CLAUDE.md` and the no-armor rule from `docs/engineering/conventions.md`.
+- An agent's `tools:` list is part of its design. A subject that can read a file or search the web is not a subject. An empty `tools: []` grants every tool; `AskUserQuestion` is unavailable to subagents; `Skill` is a path back to file access. Never widen a list to be helpful.
 - Try it once in a fresh session before relying on it.
 - Creating or changing one is T0 work and gets a Done entry like any change.
 
