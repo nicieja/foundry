@@ -1,0 +1,13 @@
+#!/bin/sh
+# Link `foundry` onto your PATH, so `foundry new <name>` works from anywhere.
+# The link points back into this clone, which is the template it copies from.
+set -e
+cd "$(dirname "$0")/.."
+bin_dir=${BIN_DIR:-$HOME/.local/bin}
+mkdir -p "$bin_dir"
+ln -sf "$PWD/packages/cli/bin/foundry" "$bin_dir/foundry"
+echo "linked $bin_dir/foundry -> $PWD/packages/cli/bin/foundry"
+case ":$PATH:" in
+  *":$bin_dir:"*) ;;
+  *) echo "$bin_dir is not on your PATH. Add it, or re-run with BIN_DIR=<dir>." ;;
+esac

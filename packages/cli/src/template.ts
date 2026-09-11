@@ -2,7 +2,7 @@ import { execFileSync } from "node:child_process";
 import path from "node:path";
 
 const EXCLUDED_DIRECTORIES = ["packages/cli/", "packages/example/"];
-const EXCLUDED_FILES = ["pnpm-lock.yaml", "README.md"];
+const EXCLUDED_FILES = ["pnpm-lock.yaml", "README.md", "bin/install"];
 const FIRST_DECISION = /^- \d{4}-/m;
 const STATUS_HEADING = "## Status";
 

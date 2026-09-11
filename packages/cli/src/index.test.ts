@@ -44,6 +44,13 @@ test("leaves packages empty, without the template's own", async () => {
   expect(await readdir(path.join(withGoal, "packages"))).toEqual([".keep"]);
 });
 
+test("leaves behind the template's own install script", async () => {
+  expect(await readdir(path.join(withGoal, "bin"))).toEqual([
+    "ci",
+    "evidence-check",
+  ]);
+});
+
 test("keeps bin/ci executable", async () => {
   const { mode } = await stat(path.join(withGoal, "bin/ci"));
   expect(mode & 0o111).toBe(0o111);
