@@ -1,0 +1,9 @@
+#!/bin/sh
+set -e
+cd "$(dirname "$0")/.."
+pnpm turbo run lint typecheck test build
+for ci in apps/*/bin/ci; do
+  [ -x "$ci" ] || continue
+  echo "==> $ci"
+  (cd "${ci%/bin/ci}" && bin/ci)
+done

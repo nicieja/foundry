@@ -1,1 +1,34 @@
-context/*
+# node
+node_modules/
+dist/
+coverage/
+*.tsbuildinfo
+.turbo/
+.pnpm-debug.log*
+.env
+.env.*
+!.env.example
+
+# non-JS apps under apps/ (rails new writes the app's own .gitignore; this is the safety net)
+apps/*/.bundle/
+apps/*/vendor/bundle/
+apps/*/log/*
+!apps/*/log/.keep
+apps/*/tmp/*
+!apps/*/tmp/.keep
+apps/*/storage/*
+!apps/*/storage/.keep
+apps/*/db/*.sqlite3*
+apps/*/config/master.key
+apps/*/config/credentials/*.key
+apps/*/public/assets/
+
+# os / editors
+.DS_Store
+.idea/
+.vscode/
+*.swp
+
+# claude code local state
+.claude/settings.local.json
+.claude/worktrees/
