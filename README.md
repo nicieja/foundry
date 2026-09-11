@@ -14,7 +14,7 @@ foundry new my-app --goal "Keep going until you've built a game you think could 
 
 That copies this clone into `my-app`, installs it, and makes the first commit. Escape a `$` in the goal, or the shell eats it. Then `cd my-app`, run `claude`, and type `/foundry`.
 
-The CLI reads the template from this clone with `git ls-files`, so the template lives in one place and cannot drift — and an uncommitted file here never reaches a new project. `packages/cli`, `packages/example` and this README stay behind.
+The CLI reads the template from this clone with `git ls-files`, so the template lives in one place and cannot drift — and an uncommitted file here never reaches a new project. `packages/cli` and this README stay behind.
 
 ## Without the CLI
 

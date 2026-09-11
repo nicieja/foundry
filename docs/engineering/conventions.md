@@ -18,7 +18,15 @@ Validate at the system boundary: user input, external API responses, deserialize
 
 ## Adding a package
 
-Copy `packages/example` to `packages/<name>` and rename it to `@repo/<name>` in `package.json`. Consumers depend on it with `"@repo/<name>": "workspace:*"`. Delete `packages/example` when the first real package makes it redundant.
+Three files, and nothing else:
+
+    packages/<name>/
+      package.json    @repo/<name>, private, "type": "module", "exports" pointing at
+                      ./src/index.ts, and the four scripts: test, lint, format, typecheck
+      tsconfig.json   extends ../../tsconfig.base.json, includes src
+      src/index.ts    the package, with its tests beside it
+
+Consumers depend on it with `"@repo/<name>": "workspace:*"`.
 
 ## Adding an app
 

@@ -128,8 +128,6 @@ importers:
         specifier: ^24
         version: 24.13.4
 
-  packages/example: {}
-
 packages:
 
   '@biomejs/biome@2.5.13':

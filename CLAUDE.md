@@ -6,10 +6,9 @@ You are an autonomous agent that builds software toward the goal in `docs/roadma
 
 - `apps/` — applications. `packages/` — shared libraries.
 - `docs/` — durable, for humans and agents. `docs/roadmap.md` is the goal, the backlog, and the status board. `docs/plans/` holds one plan per task. `docs/engineering/` holds conventions, risk tiers, the scope and risk doctrines, and the evidence doctrine. `docs/research/` holds findings worth keeping. `docs/decisions.md` records why. `docs/bets.md` is the ledger of approaches tried; `docs/risks.md` is the ledger of risks and the scale each one bites at; `docs/evidence/` holds the bars, transcripts, and verdicts a fuzzy goal is judged by.
-- `context/` — short-lived working memory. Tracked in git so worktree subagents can read it. May be wiped between tasks. `context/notes.md` is the shared scratchpad.
 - `.claude/` — the project's own commands, agents, and skills. You own it. See `.claude/README.md`.
 
-Durable goes to docs. Disposable goes to context. Never the other way round.
+Everything worth writing has a durable home in `docs/`. A note that fits nowhere there is a note the next session does not need.
 
 ## Commands
 
@@ -33,12 +32,12 @@ A goal is **fuzzy** when no command, file, or output settles it: *an app that ea
 
 ## Operating loop
 
-1. **Orient.** Read `docs/roadmap.md`. Check Blocked & escalations first: an item with an answer written under it resumes. Then read `docs/bets.md` for the open bet and its last ruled rung, `docs/risks.md` for any risk whose threshold this work now meets, any plan in `docs/plans/active/`, and `context/notes.md`.
+1. **Orient.** Read `docs/roadmap.md`. Check Blocked & escalations first: an item with an answer written under it resumes. Then read `docs/bets.md` for the open bet and its last ruled rung, `docs/risks.md` for any risk whose threshold this work now meets, and any plan in `docs/plans/active/`.
 2. **Pick.** Resume an unfinished active plan if one exists. Otherwise take the first item under Now. If Now is empty, promote the top of Next. If Now and Next are both empty and the goal is not realized, decompose the goal: write Milestones with observable "done when" conditions, fill Next, promote one item, and commit that as its own step. Now holds at most 3 items. A task too big to verify in one pass is not a task: decompose it, take the first piece, and cut the rest per `docs/engineering/scope.md`. **Under a fuzzy goal**: if no bet is open, the task is `frame` and nothing else. Refuse a build task whose rung has no PASS behind it, and run `prove` on the next unruled rung instead.
 3. **Plan.** Write `docs/plans/active/<slug>.md` from `docs/plans/TEMPLATE.md` before writing code. A small task gets a five-line plan. Implementation steps are checkboxes; tick them as they land. Cut the plan to what the next verdict needs; everything else goes to Later with the trigger that brings it back.
 4. **Build.** Implement in `apps/` or `packages/`, following `docs/engineering/conventions.md`. Spawn subagents per the section below.
 5. **Verify.** `bin/ci` green, and every bullet under the plan's Verification satisfied literally. User-facing behavior is run, not inferred. Under a fuzzy goal, a rung task is verified by its `verdict.md`, and a FAIL is a result, not a failure to fix by re-running.
-6. **Record.** Update the roadmap: Status line, Now/Next/Later, a Done entry (with ` — review` when the work touched a T2 surface). `git mv` the plan to `docs/plans/completed/`. Append to `docs/decisions.md` if a non-obvious call was made. Truncate `context/notes.md` to its header.
+6. **Record.** Update the roadmap: Status line, Now/Next/Later, a Done entry (with ` — review` when the work touched a T2 surface). `git mv` the plan to `docs/plans/completed/`. Append to `docs/decisions.md` if a non-obvious call was made.
 7. **Commit.** One commit per verified step. Roadmap and plan changes ride in the same commit as the code they describe. Go back to Orient.
 
 ## Stop and escalate
@@ -62,7 +61,7 @@ To stop: write the item under Blocked & escalations (what, why, what you need), 
 
 Spawn one when tasks are independent and can run in parallel, when exploration would flood your context, or for a review pass before committing anything T1 or above. Anything that writes code runs in a git worktree on its own branch; you merge, run `bin/ci`, and commit to main. At most 3 build lanes at once.
 
-Every brief carries: the plan path, the task's scope, the commands above, the stop conditions, and the pointer to `docs/engineering/conventions.md` including its no-armor rule. A research brief also carries its budget: the market, how many sources, and the question that ends it. Every path in a brief is absolute — a subagent starts in the session's own directory, not yours, and a relative path sends it to review a different repo without either of you noticing. Subagents append to `context/notes.md` and never edit the roadmap. Project agents in `.claude/agents/` are dispatched by the name in their frontmatter, the same way as global ones; on a name clash the project agent wins. The registry is read once per session, so an agent written this session is not dispatchable until the next one.
+Every brief carries: the plan path, the task's scope, the commands above, the stop conditions, and the pointer to `docs/engineering/conventions.md` including its no-armor rule. A research brief also carries its budget: the market, how many sources, and the question that ends it. Every path in a brief is absolute — a subagent starts in the session's own directory, not yours, and a relative path sends it to review a different repo without either of you noticing. Subagents report their findings back to you and never edit the roadmap. A fault worth keeping — a leaking brief, a spent instrument, a source that would not open — goes in the rung's `panel.md` or the plan's Research section, where it stays. Project agents in `.claude/agents/` are dispatched by the name in their frontmatter, the same way as global ones; on a name clash the project agent wins. The registry is read once per session, so an agent written this session is not dispatchable until the next one.
 
 **Never `subagent_type: "fork"` for a check.** A fork inherits your context, and the second opinion becomes your own. Fresh context is the property every agent below depends on.
 
