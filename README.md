@@ -4,6 +4,16 @@ A template for an autonomous agent that builds software from a goal. The agent r
 
 Code is verified by `bin/ci`. A goal that no command can settle — *an app that earns $1m*, *a game people finish* — is verified by `docs/engineering/evidence.md`: a bar registered before the evidence exists, a blind panel that can walk away, and a verdict ruled by an agent that never sees the builder's reasoning. Preparation is the work; code is what it earns.
 
+## Start a project
+
+The CLI in `packages/cli` scaffolds a new project from this clone, so the template exists in one place only. Link it onto your PATH once per machine:
+
+```sh
+ln -s "$PWD/packages/cli/src/main.ts" ~/.local/bin/foundry
+```
+
+Then, wherever your projects live: `foundry new my-app --goal "..."`. It writes the tree, installs it, and makes the first commit. Only tracked files are template, so commit here before you scaffold.
+
 ## Quick start
 
 1. Write the goal in the Goal section of `docs/roadmap.md`. One paragraph: what exists when it is done, and how you know.
