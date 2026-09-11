@@ -9,7 +9,7 @@ Code is verified by `bin/ci`. A goal that no command can settle — *an app that
 The CLI in `packages/cli` scaffolds a new project from this clone, so the template exists in one place only. Link it onto your PATH once per machine:
 
 ```sh
-ln -s "$PWD/packages/cli/src/main.ts" ~/.local/bin/foundry
+ln -s "$PWD/packages/cli/bin/foundry" ~/.local/bin/foundry
 ```
 
 Then, wherever your projects live: `foundry new my-app --goal "..."`. It writes the tree, installs it, and makes the first commit. Only tracked files are template, so commit here before you scaffold.

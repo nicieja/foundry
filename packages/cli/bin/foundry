@@ -1,0 +1,8 @@
+#!/bin/sh
+# The CLI is TypeScript, and Node strips types only from 23.6 on. The shell's
+# node is whatever the current directory pins, so run on the version this repo
+# pins instead. The cwd is left alone: `foundry new` writes into it.
+set -e
+root=$(cd "$(dirname "$(readlink -f "$0")")/../../.." && pwd)
+node_version=$(awk '$1 == "nodejs" { print $2 }' "$root/.tool-versions")
+exec mise exec "node@$node_version" -- node "$root/packages/cli/src/main.ts" "$@"
