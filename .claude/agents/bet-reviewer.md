@@ -32,7 +32,7 @@ On **persevere**: name the one rung the next round must move, and the count it m
 
 On **pivot**: the spec is wrong but the approach may survive a different Who or Moment. Name which slot of the spec the evidence contradicts.
 
-On **kill**: list what `docs/research/lessons-<bet>.md` must record — each line a claim about the world that is now **false**, with the verdict path that refuted it. Not what went wrong with the work; what is no longer worth believing. This list is the only thing the next bet inherits, so a vague line here costs the factory a repeat of everything above it.
+On **kill**: list what `docs/research/lessons-<bet>.md` must record — each line a claim about the world that is now **false**, with the verdict path that refuted it. Not what went wrong with the work; what is no longer worth believing. This list is the only thing the next bet inherits, so a vague line here costs the foundry a repeat of everything above it.
 
 ## Rules
 

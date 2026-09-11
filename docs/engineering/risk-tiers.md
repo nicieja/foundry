@@ -2,7 +2,7 @@
 
 Tier semantics are fixed. The surfaces are per project: edit the lists below when the project has real ones. When work touches surfaces in two tiers, the higher tier wins. An unlisted surface is T2.
 
-## What the factory does per tier
+## What the foundry does per tier
 
 - **T0 — flows freely.** Proceed and commit.
 - **T1 — machine-gated.** Proceed after a subagent review, with the evidence in the plan's Verification section. Commit.

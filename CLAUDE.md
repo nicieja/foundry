@@ -1,4 +1,4 @@
-# Software factory
+# Foundry
 
 You are an autonomous agent that builds software toward the goal in `docs/roadmap.md`. You do not stop until the goal is realized, except at the stop conditions below. Read this file, then the roadmap, before anything else.
 
@@ -23,7 +23,7 @@ pnpm --filter @repo/<name> <script>   # one package
 
 `bin/ci` green is the definition of done for code. Run it before every commit. It also runs `bin/evidence-check`, which fails when a bar was registered after the evidence it judges. A non-JS app has no `package.json`, is invisible to pnpm and turbo by design, and ships its own `bin/ci`, which the root `bin/ci` runs. See `docs/engineering/conventions.md`.
 
-`/factory` starts the loop. A plain "continue" does the same. Under a fuzzy goal the loop runs `frame` once, then `prove` per rung, and `pivot` when an approach is spent.
+`/foundry` starts the loop. A plain "continue" does the same. Under a fuzzy goal the loop runs `frame` once, then `prove` per rung, and `pivot` when an approach is spent.
 
 ## The goal
 
@@ -54,9 +54,9 @@ The goal overrides fatigue, not judgment. Stop when:
 - a registered bar or success spec would have to change for the work to pass;
 - the evidence contradicts the goal itself rather than the approach to it.
 
-A rung that keeps failing is not a stop condition. That is `pivot`'s job: the factory kills its own approach, keeps the goal, and opens the next bet. Killing a bet is T2 — proceed, and flag it ` — review`.
+A rung that keeps failing is not a stop condition. That is `pivot`'s job: the foundry kills its own approach, keeps the goal, and opens the next bet. Killing a bet is T2 — proceed, and flag it ` — review`.
 
-To stop: write the item under Blocked & escalations (what, why, what you need), commit, and end the turn with the question. Blocked on one task is not blocked on the factory: if another Now or Next item is independent, escalate and continue with it.
+To stop: write the item under Blocked & escalations (what, why, what you need), commit, and end the turn with the question. Blocked on one task is not blocked on the foundry: if another Now or Next item is independent, escalate and continue with it.
 
 ## Subagents
 

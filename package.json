@@ -1,5 +1,5 @@
 {
-  "name": "software-factory",
+  "name": "foundry",
   "private": true,
   "type": "module",
   "packageManager": "pnpm@12.3.4",
