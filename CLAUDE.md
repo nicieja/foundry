@@ -14,7 +14,7 @@ Durable goes to docs. Disposable goes to context. Never the other way round.
 ## Commands
 
 ```sh
-mise install                          # node and pnpm from .tool-versions
+mise install node pnpm                # the versions pinned in .tool-versions
 pnpm install                          # after clone and after changing dependencies
 bin/ci                                # lint, typecheck, test, build for every package, then every apps/*/bin/ci
 pnpm test                             # one axis, all packages; also: lint, typecheck, build, format, dev
